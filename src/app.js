@@ -1,6 +1,4 @@
 const path = require("path");
-require("dotenv").config({ path: path.resolve(__dirname, "../config/.env") });
-
 const express = require("express");
 const { Client } = require("@elastic/elasticsearch");
 const client = new Client({ node: "http://localhost:9200" }); // Replace with your ElasticSearch endpoint

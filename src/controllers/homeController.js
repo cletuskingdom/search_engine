@@ -12,9 +12,7 @@ const searchResults = [
 
 const index = (req, res) => {
 	res.render(view_path + "welcome", {
-		title:
-			"Create and share personalized Avater for your favorite brand, events or campaigns - " +
-			process.env.APP_NAME,
+		title: "Search",
 	});
 };
 
