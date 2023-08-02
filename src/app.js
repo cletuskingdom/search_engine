@@ -6,7 +6,6 @@ const client = new Client({ node: "http://localhost:9200" }); // Replace with yo
 const app = express();
 const port = process.env.PORT || 2000;
 const path = require("path");
-// ...
 
 app.set("views", path.join(__dirname, "views"));
 

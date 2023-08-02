@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Google Clone - Search Results</title>
+	</head>
+	<body>
+		<h1>Search Results for "<%= query %>"</h1>
+		<form action="/search" method="post">
+			<input
+				type="text"
+				name="query"
+				placeholder="Enter your search query"
+			/>
+			<button type="submit">Search</button>
+		</form>
+
+		<% if (searchResults.length === 0) { %>
+		<p>No results found.</p>
+		<% } else { %>
+		<ul>
+			<% searchResults.forEach(result => { %>
+			<li>
+				<a href="<%= result.url %>"><%= result.title %></a>
+			</li>
+			<% }); %>
+		</ul>
+		<% } %>
+	</body>
+</html>

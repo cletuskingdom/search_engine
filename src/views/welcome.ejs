@@ -4,39 +4,14 @@
 		<title><%=title%></title>
 	</head>
 	<body>
-		<h1><%=title%></h1>
-		<input
-			type="text"
-			id="searchInput"
-			placeholder="Enter your search query"
-		/>
-		<button onclick="search()">Search</button>
-
-		<div id="searchResults"></div>
-
-		<script>
-			function search() {
-				const query = document.getElementById("searchInput").value;
-				fetch(`/search?q=${encodeURIComponent(query)}`)
-					.then((response) => response.json())
-					.then((data) => {
-						displayResults(data);
-					})
-					.catch((error) => {
-						console.error(error);
-					});
-			}
-
-			function displayResults(results) {
-				const searchResultsDiv =
-					document.getElementById("searchResults");
-				searchResultsDiv.innerHTML = "";
-				results.forEach((result) => {
-					const itemDiv = document.createElement("div");
-					itemDiv.textContent = result.content; // Assuming 'content' is a field in the search result
-					searchResultsDiv.appendChild(itemDiv);
-				});
-			}
-		</script>
+		<h1>Google Clone</h1>
+		<form action="/search" method="post">
+			<input
+				type="text"
+				name="query"
+				placeholder="Enter your search query"
+			/>
+			<button type="submit">Search</button>
+		</form>
 	</body>
 </html>
