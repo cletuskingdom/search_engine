@@ -1,10 +1,10 @@
-const path = require("path");
 const express = require("express");
 const { Client } = require("@elastic/elasticsearch");
 const client = new Client({ node: "http://localhost:9200" }); // Replace with your ElasticSearch endpoint
 
 const app = express();
 const port = process.env.PORT || 2000;
+const path = require("path");
 
 app.set("views", path.join(__dirname, "views"));
 
