@@ -16,14 +16,23 @@
 
 		<% if (searchResults.length === 0) { %>
 		<p>No results found.</p>
-		<% } else { %>
-		<ul>
-			<% searchResults.forEach(result => { %>
-			<li>
-				<a href="<%= result.url %>"><%= result.title %></a>
-			</li>
-			<% }); %>
-		</ul>
-		<% } %>
+		<% } else { %> <% searchResults.slice(0,
+		resultsPerPage).forEach(function(result) { %>
+		<div style="margin: 10px; padding: 10px">
+			<a href="<%= result.url %>">
+				<i><%= result.url %></i><br />
+				<h2><%= result.title %></h2>
+			</a>
+			<p><%= result.snippet %></p>
+		</div>
+		<% }); %> <% } %>
+
+		<div>
+			<% if (currentPage > 1) { %>
+			<a href="/search?page=<%= currentPage - 1 %>">Previous Page</a>
+			<% } %> <% if (searchResults.length === resultsPerPage) { %>
+			<a href="/search?page=<%= currentPage + 1 %>">Next Page</a>
+			<% } %>
+		</div>
 	</body>
 </html>

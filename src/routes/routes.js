@@ -5,7 +5,7 @@ const homeController = require("./../controllers/homeController");
 // Welcome route
 router.get("/", homeController.index);
 
-router.get("/search", homeController.redirect_back_home);
+router.get("/search", homeController.search);
 router.post("/search", homeController.search);
 
 module.exports = router;
